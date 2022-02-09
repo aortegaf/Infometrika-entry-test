@@ -7,10 +7,10 @@ class Author(models.Model):
         ('E', 'Ecuador'),
         ('V', 'Venezuela')
     ]
-
+ 
     name = models.CharField(max_length=50)
     pob = models.CharField(max_length=1, choices=places)
-    death_date = models.DateField(blank=True)
+    death_date = models.DateField(default=None, blank=True, null=True)
 
     def __str__(self):
         return self.name
