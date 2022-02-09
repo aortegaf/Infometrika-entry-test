@@ -40,10 +40,6 @@
                             </td>
                             <td>{{book.idiom}}</td>
                             <td>{{book.editorial}}</td>
-                            <td>
-                                <button id="edit" class="btn"><span class="glyphicon glyphicon-pencil" onclick="location.href = 'http://127.0.0.1:8000/update/';"></span></button>
-                                <button id="delete" class="btn"><i class="fa fa-trash"></i></button>
-                            </td>
                         </tr>
                     {%endfor%}
                 </tbody>
@@ -67,9 +63,10 @@
         $("#myTable tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
-    });
+    })
     });
 </script>
+
 
 
 
