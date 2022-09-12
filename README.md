@@ -1,4 +1,4 @@
-# Infometrika_Test
+# Prueba técnica Infométrika
 
 Prueba desarrollada en Django. (Puntos 1 y 2)
 
