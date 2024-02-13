@@ -58,3 +58,4 @@ staticfiles/
 
 # virtualenv
 venv/
+myenv/

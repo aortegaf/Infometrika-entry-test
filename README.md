@@ -1,17 +1,25 @@
-# Prueba técnica Infométrika
+# LIBRARY API
 
-1. Virtual env
-   python -m venv myenv
-   source myenv/bin/activate
+### To run:
+
+1. Create and activate virtual env
+
+   - `python3 -m venv myenv`
+   - `source myenv/bin/activate`
 
 2. Install dependencies
-   pip install djangorestframework
-   pip install psycopg2
 
-3. Database and migrations
-   create database library_db
-   using postgresql:
-   CREATE DATABASE library_db;
-   python manage.py migrate
+   - `pip install -r requirements.txt`
 
-### Database confguration in my_app.settings
+3. Create **library_db** database _(Database configuration in my_app.settings)_
+
+   - `sudo -u postgres psql`
+   - `CREATE DATABASE library_db;`
+
+4. Make migrations
+
+   - `python3 manage.py makemigrations library_api`
+   - `python3 manage.py migrate`
+
+5. Run server
+   - `python3 manage.py runserver`
