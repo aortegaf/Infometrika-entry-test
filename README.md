@@ -1,8 +1,17 @@
 # Prueba técnica Infométrika
 
-Prueba desarrollada en Django. (Puntos 1 y 2)
+1. Virtual env
+   python -m venv myenv
+   source myenv/bin/activate
 
-Punto 4: 
-El problema central que resuelven los frameworks de frontend es la conexión entre datos y vistas. La característica clave de React es la composición de componentes y el manejo de datos dinámicos, permite el trabajo conjunto de distintas personas de forma que pueden añadir funcionalidades sin causar conflictos a lo largo del código.
+2. Install dependencies
+   pip install djangorestframework
+   pip install psycopg2
 
-Realizada por: Andrés Felipe Ortega Fernández
+3. Database and migrations
+   create database library_db
+   using postgresql:
+   CREATE DATABASE library_db;
+   python manage.py migrate
+
+### Database confguration in my_app.settings

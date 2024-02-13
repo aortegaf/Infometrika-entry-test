@@ -1,0 +1,60 @@
+# Django
+*.pyc
+*.pyo
+__pycache__
+db.sqlite3
+media/
+staticfiles/
+
+venv
+*.pyc
+__pycache__/
+migrations
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Unit test / coverage reports
+.coverage
+.tox/
+htmlcov/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+
+# virtualenv
+venv/

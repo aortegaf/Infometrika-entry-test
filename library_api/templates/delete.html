@@ -2,11 +2,11 @@
 
 {%block content%}
 
-    <p> El libro {{book.title}} será eliminado permanentemente </p>
+<p> El libro {{book.title}} será eliminado permanentemente </p>
 
-    <form methods="POST">
-        <a href="{% url 'home'  %}">Cancel</a>
-        <input type="submit" name="Confirm">
-    </form>
+<form methods="POST">
+    <a href="{% url 'home'  %}">Cancel</a>
+    <input type="submit" name="Confirm">
+</form>
 
 {%endblock%}
