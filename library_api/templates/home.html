@@ -28,8 +28,7 @@
                     <th>Writer</th>
                     <th>Language</th>
                     <th>Editorial</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +45,9 @@
                     </td>
                     <td>{{book.language}}</td>
                     <td>{{book.editorial}}</td>
-                    <td class="align-middle text-center"><i class="fas fa-pen"></i></td>
-                    <td class="align-middle text-center"><i class="fas fa-trash-alt"></i></td>
+                    <td onclick="editBook('{{book.title}}')" style="cursor: pointer" class="align-middle text-center"><i
+                            class="fas fa-pen"></i>
+                    </td>
                 </tr>
                 {%endfor%}
             </tbody>
@@ -92,6 +92,11 @@
                 tr[i].style.display = "none";
             }
         }
+    }
+
+    function editBook(title) {
+        var url = "http://127.0.0.1:8000/api/book/" + title;
+        window.open(url, '_blank');
     }
 </script>
 

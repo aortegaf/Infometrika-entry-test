@@ -3,10 +3,8 @@ from .models import Book, Writer
 
 def home(request):
     all_books = Book.objects.all
-    writer_info = Writer.objects.all
-    return render(request, 'home.html', {'library':all_books, 'writer': writer_info})
+    return render(request, 'home.html', {'library': all_books})
 
 def writers(request):
-    all_books = Book.objects.all
-    writer_info = Writer.objects.all
-    return render(request, 'writers.html', {'library':all_books, 'writers': writer_info})
+    all_writers = Writer.objects.all
+    return render(request, 'writers.html', {'writers': all_writers})

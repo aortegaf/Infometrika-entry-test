@@ -27,6 +27,7 @@
                     <th>Name</th>
                     <th>Nationality</th>
                     <th>Death date</th>
+                    <th>Update</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,8 @@
                     <td>{{writer.name}}</td>
                     <td>{{writer.get_nacionality_display}}</td>
                     <td>{{writer.death_date}}</td>
+                    <td onclick="editWriter('{{writer.id}}')" style="cursor: pointer" class="align-middle text-center">
+                        <i class="fas fa-pen"></i>
                 </tr>
                 {%endfor%}
             </tbody>
@@ -79,6 +82,11 @@
                 tr[i].style.display = "none";
             }
         }
+    }
+
+    function editWriter(id) {
+        var url = "http://127.0.0.1:8000/api/writer/" + id;
+        window.open(url, '_blank');
     }
 </script>
 
