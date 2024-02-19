@@ -1,4 +1,10 @@
-# LIBRARY API
+# Library API
+
+![image](https://github.com/aortegaf/django.CRUD/assets/51802712/289df0ef-aab5-4dd6-b92d-1582f88ca290)
+
+![image](https://github.com/aortegaf/django.CRUD/assets/51802712/1291ec7b-dde7-459f-b4b3-d2e4f42135e2)
+
+
 
 ### To run:
 
