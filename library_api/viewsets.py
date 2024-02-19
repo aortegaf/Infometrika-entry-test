@@ -2,9 +2,9 @@ from rest_framework import viewsets
 from . import models
 from . import serializers
 
-class AuthorViewset(viewsets.ModelViewSet):
-    queryset = models.Author.objects.all()
-    serializer_class = serializers.AuthorSerializer
+class WriterViewset(viewsets.ModelViewSet):
+    queryset = models.Writer.objects.all()
+    serializer_class = serializers.WriterSerializer
 
 class BookViewset(viewsets.ModelViewSet):
     queryset = models.Book.objects.all()

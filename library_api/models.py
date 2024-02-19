@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-class Author(models.Model):
+class Writer(models.Model):
     places = [
         ('C', 'Colombia'),
         ('E', 'Ecuador'),
@@ -17,9 +17,9 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(primary_key=True, max_length=100)
-    author = models.ManyToManyField(Author)
+    writer = models.ManyToManyField(Writer)
     pages = models.PositiveIntegerField()
-    idiom = models.CharField(max_length=20)
+    language = models.CharField(max_length=20)
     editorial = models.CharField(max_length=100)
 
     def __str__(self):

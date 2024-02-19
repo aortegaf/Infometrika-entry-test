@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Author
+from .models import Writer
 from .models import Book
 
-class AuthorSerializer(serializers.ModelSerializer):
+class WriterSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Author
+        model = Writer
         fields = '__all__'
 
 class BookSerializer(serializers.ModelSerializer):

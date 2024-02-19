@@ -3,55 +3,76 @@
 {%block content%}
 
 <div class="container">
-    <br /><br /><br />
-    <center>
-        <h2>LIBRARY</h2><br />
-        <h4>Encuentra algún libro aquí:</h4>
-    </center>
-    <input class="form-control" id="myInput" type="text" placeholder="Search.."><br>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>#Páginas</th>
-                <th>Autor(es)</th>
-                <th>Idioma</th>
-                <th>Editorial</th>
-            </tr>
-        </thead>
-        <tbody id="myTable">
-            {%for book in library%}
-            <tr>
-                <td>{{book.title}}</td>
-                <td>{{book.pages}}</td>
-                <td>
-                    {%for author in book.author.all%}
-                    <li>{{author}}</li>
-                    {%endfor%}
-                </td>
-                <td>{{book.idiom}}</td>
-                <td>{{book.editorial}}</td>
-            </tr>
-            {%endfor%}
-        </tbody>
-    </table>
+    <div class="text-center my-3">
+        <h2>LIBRARY</h2>
+        <button type="button" class="btn btn-link" onclick="window.open('http://127.0.0.1:8000/writers/', '_blank');">
+            Check registered writers
+        </button>
 
-    <br /><br /><br />
-    <center>
-        <h4>Ingresar nuevo:</h4>
-        <button type="button" class="btn btn-link"
-            onclick="location.href = 'http://127.0.0.1:8000/api/author/';"><strong>AUTOR</strong></button>
-        <button type="button" class="btn btn-link"
-            onclick="location.href = 'http://127.0.0.1:8000/api/book/';"><strong>LIBRO</strong></button>
-    </center>
+    </div>
 
+    <div class="my-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6">
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th>Name</th>
+                    <th>Pages</th>
+                    <th>Writer</th>
+                    <th>Language</th>
+                    <th>Editorial</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                {%for book in library%}
+                <tr>
+                    <td>{{book.title}}</td>
+                    <td>{{book.pages}}</td>
+                    <td>
+                        <ul>
+                            {%for writer in book.writer.all%}
+                            <li>{{writer}}</li>
+                            {%endfor%}
+                        </ul>
+                    </td>
+                    <td>{{book.language}}</td>
+                    <td>{{book.editorial}}</td>
+                    <td class="align-middle text-center"><i class="fas fa-pen"></i></td>
+                    <td class="align-middle text-center"><i class="fas fa-trash-alt"></i></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="text-center">
+        <h4>Register:</h4>
+        <button type="button" class="btn btn-secondary"
+            onclick="window.open('http://127.0.0.1:8000/api/writer/', '_blank');">
+            AUTHOR
+        </button>
+        <button type="button" class="btn btn-secondary"
+            onclick="window.open('http://127.0.0.1:8000/api/book/', '_blank');">
+            BOOK
+        </button>
+    </div>
 </div>
 
 {%endblock%}
 
 <script>
     $(document).ready(function () {
-        $("#myInput").on("keyup", function () {
+        $("#myInput").on("keyup", function (event) {
+            console.log(event.target.value);
             var value = $(this).val().toLowerCase();
             $("#myTable tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)

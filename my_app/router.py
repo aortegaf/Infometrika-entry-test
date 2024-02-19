@@ -1,7 +1,7 @@
-from library_api.viewsets import AuthorViewset
+from library_api.viewsets import WriterViewset
 from library_api.viewsets import BookViewset
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register('author', AuthorViewset)
+router.register('writer', WriterViewset)
 router.register('book', BookViewset)

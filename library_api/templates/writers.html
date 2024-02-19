@@ -1,0 +1,82 @@
+{%extends 'bootstrap_starter.html' %}
+
+{%block content%}
+
+<div class="container">
+    <div class="text-center my-3">
+        <h2>Writers</h2>
+    </div>
+
+    <div class="my-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6">
+                <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+            </div>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th>Name</th>
+                    <th>Nationality</th>
+                    <th>Death date</th>
+                </tr>
+            </thead>
+            <tbody id="writersTable">
+                {%for writer in writers%}
+                <tr>
+                    <td>{{writer.name}}</td>
+                    <td>{{writer.get_pob_display}}</td>
+                    <td>{{writer.death_date}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="text-center">
+        <h4>Register:</h4>
+        <!-- <button type="button" class="btn btn-secondary"
+            onclick="window.open('http://127.0.0.1:8000/api/author/', '_blank');">
+            AUTHOR
+        </button> -->
+        <button type="button" class="btn btn-secondary"
+            onclick="window.open('http://127.0.0.1:8000/api/book/', '_blank');">
+            BOOK
+        </button>
+    </div>
+</div>
+
+<script>
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var searchInput = document.getElementById('searchInput');
+    //             //         var value = $(this).val().toLowerCase();k
+
+    //     // Add event listener for keydown events
+    //     searchInput.addEventListener('keydown', function (event) {
+    //         // Log the pressed key to the console
+    //         console.log(searchInput.value);
+    //         // if(searchInput.value.toLowerCase() == )
+    //         } 
+    //     });
+    // });
+
+
+
+
+
+    // $(document).ready(function () {
+    //     $("#searchInput").on("keydown", function (event) {
+    //         console.log("hola");
+    
+    //         $("#myTable tr").filter(function () {
+    //             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    //         });
+    //     })
+    // });
+</script>
+
+{%endblock%}

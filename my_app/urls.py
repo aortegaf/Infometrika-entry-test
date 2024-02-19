@@ -5,4 +5,5 @@ from library_api import views
 urlpatterns = [
     path('api/', include(router.urls)),
     path('', views.home, name="home"),
+    path('writers/', views.writers, name="writers"),
 ]
