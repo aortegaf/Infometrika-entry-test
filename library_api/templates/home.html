@@ -5,20 +5,22 @@
 <div class="container">
     <div class="text-center my-3">
         <h2>LIBRARY</h2>
-        <button type="button" class="btn btn-link" onclick="window.open('http://127.0.0.1:8000/writers/', '_blank');">
+        <button type="button" class="btn btn-link" onclick="window.location.href='http://127.0.0.1:8000/writers/';">
             Check registered writers
         </button>
-
     </div>
 
     <div class="my-5">
         <div class="row justify-content-center mb-3">
-            <div class="col-md-6">
-                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <div class="col-md-5 position-relative">
+                <input class="form-control pl-3" style="padding-right: 2.5rem; border-radius: 5px;" id="searchInput"
+                    type="text" placeholder="Search..." onkeyup="searchFunction()">
+                <i class="fas fa-search position-absolute"
+                    style="top: 50%; right: 25px; transform: translateY(-50%);"></i>
             </div>
         </div>
 
-        <table class="table table-bordered table-striped">
+        <table id="booksTable" class="table table-bordered table-striped">
             <thead>
                 <tr class="text-center">
                     <th>Name</th>
@@ -30,7 +32,7 @@
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody id="myTable">
+            <tbody>
                 {%for book in library%}
                 <tr>
                     <td>{{book.title}}</td>
@@ -52,31 +54,45 @@
         </table>
     </div>
 
-
-
-    <div class="text-center">
-        <h4>Register:</h4>
-        <button type="button" class="btn btn-secondary"
-            onclick="window.open('http://127.0.0.1:8000/api/writer/', '_blank');">
-            AUTHOR
-        </button>
+    <div class="d-flex justify-content-end mb-3">
         <button type="button" class="btn btn-secondary"
             onclick="window.open('http://127.0.0.1:8000/api/book/', '_blank');">
-            BOOK
+            New book registration
         </button>
     </div>
 </div>
 
-{%endblock%}
-
 <script>
-    $(document).ready(function () {
-        $("#myInput").on("keyup", function (event) {
-            console.log(event.target.value);
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        })
-    });
+    function searchFunction() {
+        var input, filter, table, tr, td, i, j, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("booksTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            if (tr[i].getElementsByTagName("th").length > 0) {
+                continue;
+            }
+
+            var found = false;
+            for (j = 0; j < tr[i].cells.length; j++) {
+                td = tr[i].cells[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if (found) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 </script>
+
+{%endblock%}
