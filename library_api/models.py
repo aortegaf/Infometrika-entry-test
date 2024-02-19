@@ -9,7 +9,7 @@ class Writer(models.Model):
     ]
  
     name = models.CharField(max_length=50)
-    pob = models.CharField(max_length=1, choices=places)
+    nacionality = models.CharField(max_length=1, choices=places)
     death_date = models.DateField(default=None, blank=True, null=True)
 
     def __str__(self):
